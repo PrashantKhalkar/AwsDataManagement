@@ -1,4 +1,4 @@
-package aws;
+package com.aws.configuration;
 
 
 class AwsDataBean {

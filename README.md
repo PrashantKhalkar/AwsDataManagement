@@ -15,5 +15,5 @@ Developer Info:
 2. Abhishek bhosale would be working on UI.
 
 Project Info:
- This would be a Online shopping website where user can palce an order for the selected product.
+ This would be a website like a zomato where user can place an order for the selected food items.
  #WIP
