@@ -8,12 +8,24 @@ public class Table {
 	private int tableNumber;
 	private int reservedFor;
 	private boolean isReserved = false;
+	private String waiterName = "no waiter assigned";
+	
+	public void setWaiterName(String waiterName) {
+		this.waiterName = waiterName;
+	}
+
 	private static List<Table> list = new  ArrayList<Table>();
+	
 	static {
-		list.add(new Table(321));
+		list.add(new Table(321,"Ramesh"));
 	}
 	
 	public Table() {
+	}
+
+	public Table(int i, String waiterName) {
+		tableNumber =i;
+		this.waiterName = waiterName;
 	}
 
 	public Table(int i) {
@@ -38,9 +50,14 @@ public class Table {
 	}
 
 	
-	public void reserveTheTable(boolean flag, int userId) {
-		reservedFor =userId;
-		isReserved = flag;
+	public void reserveTableFor(int userId) {
+		reservedFor = userId;
+		isReserved = true;
+		assignWaiiter();
+	}
+
+	private void assignWaiiter() {
+		
 	}
 
 	public boolean isReserved() {
@@ -56,6 +73,32 @@ public class Table {
 	}
 
 	public static List<Table> getAllTables() {	return list;		
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + tableNumber;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Table other = (Table) obj;
+		if (tableNumber != other.tableNumber)
+			return false;
+		return true;
+	}
+
+	public String getWaiterName() {
+		return waiterName;
 	}
 
 }

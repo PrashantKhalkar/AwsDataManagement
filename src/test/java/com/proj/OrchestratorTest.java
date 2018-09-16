@@ -41,5 +41,36 @@ public class OrchestratorTest {
 		Table table = user.getReservedTable(restaurantList.get(0));
 		Assert.assertEquals(table.getReservedFor(), user.getUserId());
 	}
+	
+	@Test
+	public void thatRestaurantShouldAddTable(){
+		List<Restaurant> restaurantList = Restaurant.getAllRestaurants();
+		Restaurant restaurant = restaurantList.get(0);
+		List<Table> tableList = restaurant.getTables();
+		Table newTable = new Table(32);
+		tableList.add(newTable);
+		Assert.assertEquals(tableList.size(), Table.getAllTables().size());
+	}
+	
+	@Test
+	public void thatRestaurantShouldRemoveTheTable(){
+		List<Restaurant> restaurantList = Restaurant.getAllRestaurants();
+		Restaurant restaurant = restaurantList.get(0);
+		List<Table> tableList = restaurant.getTables();
+		tableList.remove(new Table(321));
+		Assert.assertEquals(tableList.size(), Table.getAllTables().size());
+	}
+
+	@Test
+	public void thatWaiterIsAssiignedToBookedTable(){
+		User user= new User(31);
+		Restaurant restaurant= Restaurant.getAllRestaurants().get(0);
+		user.bookTable(restaurant);
+		Table reservedTable = user.getReservedTable(restaurant);
+		String name = reservedTable.getWaiterName();
+		Assert.assertEquals(Table.getAllTables().get(0).getWaiterName(), name );
+	}
+	
+	
 }
 

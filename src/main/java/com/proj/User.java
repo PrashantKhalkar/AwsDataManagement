@@ -34,14 +34,12 @@ public class User {
 	}
 
 	public void bookTable(Restaurant restaurant) {
-		// TODO Auto-generated method stub
 		List<Table> tableList = restaurant.getTables();
-		tableList.get(0).reserveTheTable(true, userId);
+		tableList.get(0).reserveTableFor(userId);
 		this.madeReservation =true;
 	}
 
 	public Table getReservedTable(Restaurant restaurant) {
-		// TODO Auto-generated method stub
 		List<Table> tableList = restaurant.getTables();
 		for(Table table:tableList){
 			if(table.isReserved() && table.forUser(userId)){
