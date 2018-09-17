@@ -62,7 +62,7 @@ public class OrchestratorTest {
 	}
 
 	@Test
-	public void thatWaiterIsAssiignedToBookedTable(){
+	public void thatWaiterIsAssignedToBookedTable(){
 		User user= new User(31);
 		Restaurant restaurant= Restaurant.getAllRestaurants().get(0);
 		user.bookTable(restaurant);
@@ -71,6 +71,13 @@ public class OrchestratorTest {
 		Assert.assertEquals(Table.getAllTables().get(0).getWaiterName(), name );
 	}
 	
+	@Test
+	public void thatUserIsAbledToWriteReview(){
+		User user = new User(007);
+		Restaurant restaurant = Restaurant.getAllRestaurants().get(0);
+		user.writeReview(restaurant, "Good service!!");
+		Assert.assertNotNull(restaurant.getReviewList().size());;
+	}
 	
 }
 

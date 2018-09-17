@@ -53,4 +53,8 @@ public class User {
 		return madeReservation == true ?true : false;
 	}
 
+	public void writeReview(Restaurant restaurant, String review) {
+		restaurant.addReview(review);
+	}
+
 }
