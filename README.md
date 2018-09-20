@@ -10,5 +10,5 @@
 
 
 Project Info:
- This would be a website like a zomato where user can place an order for the selected food items.
+ This would be zomato(online food ordering/restaurant booking) like website where user can place an order for the selected food items for delivery or user can make reservations, write reviews, add photos, rate restaurants.
  #WIP
